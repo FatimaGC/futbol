@@ -2,7 +2,6 @@ require 'rspec'
 require './lib/stat_tracker.rb'
 
 RSpec.describe StatTracker do
-
   let(:stat_tracker) {
     StatTracker.new(2012030221, 20122013, "Postseason", 5/16/13, 3,6,2,3, "Toyota Stadium","/api/v1/venues/null")
   }
@@ -26,5 +25,8 @@ RSpec.describe StatTracker do
       expect(stat_tracker.venue_link).to eq("/api/v1/venues/null")
     end
   end
+
+  # #highest_total_score	Highest sum of the winning and losing teams’ scores	Integer
+  # describe
 end
   
