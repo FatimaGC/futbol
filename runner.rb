@@ -1,6 +1,6 @@
 require './lib/stat_tracker'
 
-game_path = './data/games.csv'
+game_path = './data/dummy_games_data.csv'
 
 locations = {
   games: game_path
