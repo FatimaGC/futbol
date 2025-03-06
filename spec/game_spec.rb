@@ -26,24 +26,22 @@ RSpec.describe Game do
     end
   
     
-    xit 'has attributes of game_id, season, season_type, date_time, away_team_id, home_team_id, away_goals, home_goals, venue, venue_link' do
-      expect(@game.game_id).to eq(2012030221)
-      expect(@game.season).to eq(20122013)
-      expect(@game.season_type).to eq("Postseason")
-      expect(@game.date_time).to eq(5/16/13)
-      expect(@game.away_team_id).to eq(3)
-      expect(@game.home_team_id).to eq(6)
-      expect(@game.away_goals).to eq(2)
-      expect(@game.home_goals).to eq(3)
-      expect(@game.venue).to eq("Toyota Stadium")
+    it 'has attributes of game_id, season, season_type, date_time, away_team_id, home_team_id, away_goals, home_goals, venue, venue_link' do
+      expect(@game.game_id).to eq(2017030241)
+      expect(@game.season).to eq(20172018)
+      expect(@game.type).to eq("Postseason")
+      expect(@game.date_time).to eq("4/27/18")
+      expect(@game.away_team_id).to eq(28)
+      expect(@game.home_team_id).to eq(54)
+      expect(@game.away_goals).to eq(0)
+      expect(@game.home_goals).to eq(5)
+      expect(@game.venue).to eq("Cheney Stadium")
       expect(@game.venue_link).to eq("/api/v1/venues/null")
     end
   end
 
   describe '::all_instances' do
     it 'returns an array of game objects' do
-      #game = Game.new(2012030221, 20122013, "Postseason", 5/16/13, 3,6,2,3, "Toyota Stadium","/api/v1/venues/null")
-
       expect(Game.all_instances.count).to eq 84
     end
   end

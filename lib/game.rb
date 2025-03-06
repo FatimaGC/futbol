@@ -5,7 +5,8 @@ class Game
 
    attr_reader :game_id,
                :season,
-               :season_type,
+               :season,
+               :type,
                :date_time,
                :away_team_id,
                :home_team_id,
@@ -17,7 +18,7 @@ class Game
   
   def initialize(row)
     @game_id = row[:game_id].to_i
-    @season = row[:season]
+    @season = row[:season].to_i
     @type = row[:type]
     @date_time = row[:date_time]
     @away_team_id = row[:away_team_id].to_i
