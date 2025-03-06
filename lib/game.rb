@@ -34,4 +34,6 @@ class Game
   def self.all_instances
     @@instances # Return the array of instances
   end
+
+  
 end

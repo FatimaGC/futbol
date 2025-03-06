@@ -4,10 +4,6 @@ require './lib/stat_tracker'
 
 
 RSpec.describe Game do
-  # let!(:game) {
-  #   Game.new(2012030221, 20122013, "Postseason", 5/16/13, 3,6,2,3, "Toyota Stadium","/api/v1/venues/null")
-  # }
-
   before(:all) do 
     game_path = './data/dummy_games_data.csv'
 
@@ -46,7 +42,7 @@ RSpec.describe Game do
     end
   end
 
-  xdescribe '#highest total score' do
+  describe '#highest total score' do
     it 'returns the highest total score of a game' do
       #Out of each game/row, which game has the highest total score?
       #Create a new empty array
@@ -56,6 +52,12 @@ RSpec.describe Game do
       #Return the highest score
 
       #Iterate through all Game objects 
+        #Data: Array > Objects 
+        #Iterate through the array with a loop 
+          #On each object, access away_goals and home_goals and add them together
+          #push into the new array 
+    
+      expect(Game.highest_total_score).to eq (8)
     end
   end
 end
