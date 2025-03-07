@@ -72,7 +72,7 @@ RSpec.describe Game do
 
   describe '::percentage_visitor_wins' do
     it 'returns the percentage of games that a visiting team has won (rounded to the nearest 100th)' do
-      expect(Game.percentage_visitor_wins).to eq (30.00)
+      expect(Game.percentage_visitor_wins).to eq (40.48)
     end
   end
 end

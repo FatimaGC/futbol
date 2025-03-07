@@ -47,4 +47,9 @@ class Game
     home_wins = all_instances.filter_map {|game| game.home_goals > game.away_goals}.count
     percent_wins = ((home_wins.to_f / all_instances.length) * 100).round(2)
   end
+
+  def self.percentage_visitor_wins
+    visitor_wins = all_instances.filter_map {|game| game.home_goals < game.away_goals}.count
+    percent_wins = ((visitor_wins.to_f / all_instances.length) * 100).round(2)
+  end
 end
