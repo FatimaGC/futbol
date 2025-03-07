@@ -42,8 +42,8 @@ RSpec.describe Game do
     end
   end
 
-  describe '#highest total score' do
-    it 'returns the highest total score of a game' do
+  describe '::highest_total_score' do
+    it 'returns the highest total score out of all the games' do
       #Out of each game/row, which game has the highest total score?
       #Create a new empty array
         #total_scores = []
@@ -53,6 +53,12 @@ RSpec.describe Game do
 
       #Iterate through all Game objects 
       expect(Game.highest_total_score).to eq (9)
+    end
+  end
+
+  describe '::lowest_total_score' do
+    it 'returns the lowest total score out of all the games' do
+      expect(Game.lowest_total_score).to eq (1)
     end
   end
 end
