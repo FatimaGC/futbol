@@ -36,19 +36,6 @@ class Game
   end
 
   def self.highest_total_score
-    # total_scores = []
-
-    # all_instances.each do |game|
-    #   require 'pry'; binding.pry
-    #   score = 0 
-    #   score += game.away_goals
-    #   score += game.home_goals
-    #   total_scores.push(score)
-    # end
-
-    # total_scores.max
-
-    #Refactored code
     total_scores = all_instances.map {|game| game.away_goals + game.home_goals}.max
   end
 

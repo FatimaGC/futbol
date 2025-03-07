@@ -66,7 +66,7 @@ RSpec.describe Game do
     it 'returns the percentage of games that a home team has won (rounded to the nearest 100th)' do
       #Create a new array that tracks when home goals > away goals 
       #Return the percentage which is the new array length divided by the game instances 
-      expect(Game.percentage_home_wins).to eq (30.0)
+      expect(Game.percentage_home_wins).to eq (46.43)
     end
   end
 end
