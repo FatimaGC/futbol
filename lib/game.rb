@@ -51,4 +51,8 @@ class Game
     #Refactored code
     total_scores = all_instances.map {|game| game.away_goals + game.home_goals}.max
   end
+
+  def self.lowest_total_score
+    total_scores = all_instances.map {|game| game.away_goals + game.home_goals}.min #functionality is the same as the method above. Make this a module?
+  end
 end
