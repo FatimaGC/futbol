@@ -42,4 +42,9 @@ class Game
   def self.lowest_total_score
     total_scores = all_instances.map {|game| game.away_goals + game.home_goals}.min #functionality is the same as the method above. Make this a module?
   end
+
+  def self.percentage_home_wins
+    home_wins = all_instances.filter_map {|game| game.home_goals > game.away_goals}.count
+    percent_wins = ((home_wins.to_f / all_instances.length) * 100).round(2)
+  end
 end
