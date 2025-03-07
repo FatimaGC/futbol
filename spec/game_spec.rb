@@ -75,4 +75,10 @@ RSpec.describe Game do
       expect(Game.percentage_visitor_wins).to eq (40.48)
     end
   end
+
+  describe '::percentage_ties' do
+    it 'returns percentage of games that hava resulted in a tie (rounded to the nearest 100th)' do
+      expect(Game.percentage_ties).to eq (20.00)
+    end
+  end
 end
