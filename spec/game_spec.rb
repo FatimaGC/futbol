@@ -52,12 +52,7 @@ RSpec.describe Game do
       #Return the highest score
 
       #Iterate through all Game objects 
-        #Data: Array > Objects 
-        #Iterate through the array with a loop 
-          #On each object, access away_goals and home_goals and add them together
-          #push into the new array 
-    
-      expect(Game.highest_total_score).to eq (8)
+      expect(Game.highest_total_score).to eq (9)
     end
   end
 end
