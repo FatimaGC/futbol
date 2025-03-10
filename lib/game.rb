@@ -54,8 +54,9 @@ class Game
   end
 
   def self.percentage_ties
-    require 'pry'; binding.pry
     ties = all_instances.filter_map {|game| game.home_goals == game.away_goals}.count
     percent_ties = ((ties.to_f / all_instances.length) * 100).round(2)
   end
+
+  
 end
