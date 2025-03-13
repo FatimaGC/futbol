@@ -1,8 +1,6 @@
 class Game
   @@instances = []
 
-
-
    attr_reader :game_id,
                :season,
                :season,
@@ -36,27 +34,42 @@ class Game
   end
 
   def self.highest_total_score
-    total_scores = all_instances.map {|game| game.away_goals + game.home_goals}.max
+    total_score.max
   end
 
   def self.lowest_total_score
-    total_scores = all_instances.map {|game| game.away_goals + game.home_goals}.min #functionality is the same as the method above. Make this a module?
+    total_score.min
   end
 
   def self.percentage_home_wins
-    home_wins = all_instances.filter_map {|game| game.home_goals > game.away_goals}.count
-    percent_wins = ((home_wins.to_f / all_instances.length) * 100).round(2)
+    home_wins = @@instances.filter_map {|game| game.home_goals > game.away_goals}.count
+    percentage(home_wins)
   end
 
   def self.percentage_visitor_wins
-    visitor_wins = all_instances.filter_map {|game| game.home_goals < game.away_goals}.count
-    percent_wins = ((visitor_wins.to_f / all_instances.length) * 100).round(2)
+    visitor_wins = @@instances.filter_map {|game| game.home_goals < game.away_goals}.count
+    percentage(visitor_wins)
   end
 
   def self.percentage_ties
-    ties = all_instances.filter_map {|game| game.home_goals == game.away_goals}.count
-    percent_ties = ((ties.to_f / all_instances.length) * 100).round(2)
+    ties = @@instances.filter_map {|game| game.home_goals == game.away_goals}.count
+    percentage(ties)
   end
 
-  
+  def self.count_of_games_by_season
+    season_hash = {}
+    seasons = @@instances.map(&:season).uniq
+    season_hash[seasons]
+  end
+
+  private #used to separate helper methods that should only be accessed within the Class. 
+
+  def self.total_score
+    @total_score ||= @@instances.map {|game| game.away_goals + game.home_goals}
+  end
+
+
+  def self.percentage(win_count)
+    ((win_count.to_f / @@instances.length) * 100).round(2)
+  end
 end
