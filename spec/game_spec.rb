@@ -82,11 +82,12 @@ RSpec.describe Game do
     end
   end
 
-  xdescribe '::count_of_games_by_season' do
+  describe '::count_of_games_by_season' do
     it 'returns a hash with season names (e.g. 20122013) as keys and counts of games as values' do
       
-      expect(Game.count_of_games_by_season).to eq (count_of_games_by_season_hash = count_of_games_by_season = {
-        20172018 => 84
+      expect(Game.count_of_games_by_season).to eq (count_of_games_by_season_hash = {
+        20172018 => 84,
+        20122013 => 1
         })
     end
   end

@@ -57,10 +57,33 @@ class Game
   end
 
   def self.count_of_games_by_season
+    #Create an empty hash
     season_hash = {}
-    seasons = @@instances.map(&:season).uniq
-    season_hash[seasons]
+
+    # #Map through the data to create a new array with unique season numbers.
+    # unique_seasons = @@instances.map(&:season).uniq #Creates [20172018, 20122013]
+    
+    # #Iterate through the array above and add each season number as a key in the hash. 
+    # unique_seasons.each do |season|
+    #   season_hash[season] = 0
+    # end
+    # require 'pry'; binding.pry
+    # p season_hash
+
+    #REFACTOR 
+    @@instances.each do |game|
+      season = game.season
+
+      if season_hash.key?(season)
+        season_hash[season] += 1
+      else 
+        season_hash[season] = 1
+      end
+    end
+
+    season_hash
   end
+
 
   private #used to separate helper methods that should only be accessed within the Class. 
 
