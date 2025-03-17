@@ -38,7 +38,7 @@ RSpec.describe Game do
 
   describe '::all_instances' do
     it 'returns an array of game objects' do
-      expect(Game.all_instances.count).to eq 85
+      expect(Game.all_instances.count).to eq 10
     end
   end
 
@@ -52,13 +52,13 @@ RSpec.describe Game do
       #Return the highest score
 
       #Iterate through all Game objects 
-      expect(Game.highest_total_score).to eq (9)
+      expect(Game.highest_total_score).to eq (7)
     end
   end
 
   describe '::lowest_total_score' do
     it 'returns the lowest total score out of all the games' do
-      expect(Game.lowest_total_score).to eq (1)
+      expect(Game.lowest_total_score).to eq (2)
     end
   end
 
@@ -66,29 +66,37 @@ RSpec.describe Game do
     it 'returns the percentage of games that a home team has won (rounded to the nearest 100th)' do
       #Create a new array that tracks when home goals > away goals 
       #Return the percentage which is the new array length divided by the game instances 
-      expect(Game.percentage_home_wins).to eq (47.06)
+      expect(Game.percentage_home_wins).to eq (60.0)
     end
   end
 
   describe '::percentage_visitor_wins' do
     it 'returns the percentage of games that a visiting team has won (rounded to the nearest 100th)' do
-      expect(Game.percentage_visitor_wins).to eq (40.0)
+      expect(Game.percentage_visitor_wins).to eq (30.0)
     end
   end
 
   describe '::percentage_ties' do
     it 'returns percentage of games that hava resulted in a tie (rounded to the nearest 100th)' do
-      expect(Game.percentage_ties).to eq (12.94)
+      expect(Game.percentage_ties).to eq (10.0)
     end
   end
 
   describe '::count_of_games_by_season' do
     it 'returns a hash with season names (e.g. 20122013) as keys and counts of games as values' do
       
-      expect(Game.count_of_games_by_season).to eq (count_of_games_by_season_hash = {
-        20172018 => 84,
+      count_of_games_by_season_hash = {
+        20172018 => 9,
         20122013 => 1
-        })
+        }
+
+      expect(Game.count_of_games_by_season).to eq (count_of_games_by_season_hash)
+    end
+  end
+
+  xdescribe '::average_goals_per_game' do
+    it 'returns the average number of goals scored in a game across all seasons including both home and away goals (rounded to the nearest 100th)' do
+      expect(Game.average_goals_per_game).to eq ()
     end
   end
 end

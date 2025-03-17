@@ -59,7 +59,6 @@ class Game
   def self.count_of_games_by_season
     #Create an empty hash
     season_hash = {}
-
     # #Map through the data to create a new array with unique season numbers.
     # unique_seasons = @@instances.map(&:season).uniq #Creates [20172018, 20122013]
     
@@ -80,7 +79,7 @@ class Game
         season_hash[season] = 1
       end
     end
-
+    
     season_hash
   end
 
