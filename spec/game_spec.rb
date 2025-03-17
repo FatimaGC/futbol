@@ -96,7 +96,7 @@ RSpec.describe Game do
 
   describe '::average_goals_per_game' do
     it 'returns the average number of goals scored in a game across all seasons including both home and away goals (rounded to the nearest 100th)' do
-      expect(Game.average_goals_per_game).to eq (5)
+      expect(Game.average_goals_per_game).to eq (4.6)
     end
   end
 end

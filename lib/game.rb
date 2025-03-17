@@ -83,6 +83,9 @@ class Game
     season_hash
   end
 
+  def self.average_goals_per_game 
+    total_score.sum.to_f / @@instances.length
+  end
 
   private #used to separate helper methods that should only be accessed within the Class. 
 
