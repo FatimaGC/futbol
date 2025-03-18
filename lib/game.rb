@@ -58,7 +58,7 @@ class Game
 
   def self.count_of_games_by_season
     #Create an empty hash
-    season_hash = {}
+    season_hash = Hash.new(0)
     # #Map through the data to create a new array with unique season numbers.
     # unique_seasons = @@instances.map(&:season).uniq #Creates [20172018, 20122013]
     
@@ -73,11 +73,11 @@ class Game
     @@instances.each do |game|
       season = game.season
 
-      if season_hash.key?(season)
+      # if season_hash.key?(season)
         season_hash[season] += 1
-      else 
-        season_hash[season] = 1
-      end
+      # else 
+      #   season_hash[season] = 1
+      # end
     end
     
     season_hash
@@ -86,6 +86,26 @@ class Game
   def self.average_goals_per_game 
     total_score.sum.to_f / @@instances.length
   end
+
+  def self.average_goals_by_season
+    season_hash = Hash.new { |hash, key| hash[key] = [] }
+
+    @@instances.each do |game|
+      season = game.season
+        season_hash[season] << game.away_goals + game.home_goals
+    end
+    # Output of the cove above: season_hash = {
+      #20172018 => [5, 5, 5, 2, 6, 3, 3, 5, 7] 
+    #}
+
+    season_hash.each do |season, goals|
+      # require 'pry'; binding.pry
+      season_hash[season] = (goals.sum.to_f / goals.length).round(2)
+    end
+
+    season_hash
+  end
+
 
   private #used to separate helper methods that should only be accessed within the Class. 
 

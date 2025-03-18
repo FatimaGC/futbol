@@ -103,7 +103,7 @@ RSpec.describe Game do
   describe '::average_goals_by_season' do
     it 'returns the average number of goals scored in a game organized in a hash with season names (e.g. 20122013) as keys and a float representing the average number of goals in a game for that season as values (rounded to the nearest 100th)' do
       average_goals_by_season_hash = {
-        20172018 => 4.5,
+        20172018 => 4.56,
         20122013 => 5
         }
       
